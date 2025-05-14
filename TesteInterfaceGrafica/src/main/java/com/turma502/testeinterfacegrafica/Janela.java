@@ -1,0 +1,60 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.turma502.testeinterfacegrafica;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+/**
+ *
+ * @author ulyss
+ */
+public class Janela extends JFrame{
+    private JButton botao1, botao2;
+    private JTextField texto1, texto2;
+    private JLabel label1, label2, titulo, rodape;
+    private JPanel painelSuperior, painelCentral, painelInferior;
+    
+    public Janela(){
+        super("Janela Principal");
+        inicializarComponentes();
+    }
+    
+    private void inicializarComponentes(){
+        painelSuperior = new JPanel();
+        painelCentral = new JPanel();
+        painelInferior = new JPanel();
+        
+        add(painelSuperior, BorderLayout.NORTH);
+        add(painelInferior, BorderLayout.SOUTH);
+        add(painelCentral);
+        
+        titulo = new JLabel("Janela Principal");
+        rodape = new JLabel("Rodapé da janela");
+        
+        painelSuperior.add(titulo);
+        painelInferior.add(rodape);
+        
+        label1 = new JLabel("Login:");
+        label2 = new JLabel("Senha:");
+        texto1 = new JTextField(20);
+        texto2 = new JTextField(20);
+        botao1 = new JButton("Botão 1");
+        botao2 = new JButton("Botão 2");
+       
+        painelCentral.add(label1);
+        painelCentral.add(texto1);
+        painelCentral.add(label2);
+        painelCentral.add(texto2);
+        painelCentral.add(botao1);   
+        painelCentral.add(botao2);
+    }
+    
+}

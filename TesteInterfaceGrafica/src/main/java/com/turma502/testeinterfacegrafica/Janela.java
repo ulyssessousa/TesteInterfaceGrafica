@@ -6,9 +6,13 @@ package com.turma502.testeinterfacegrafica;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -16,7 +20,7 @@ import javax.swing.JTextField;
  *
  * @author ulyss
  */
-public class Janela extends JFrame{
+public class Janela extends JFrame implements ActionListener{
     private JButton botao1, botao2;
     private JTextField texto1, texto2;
     private JLabel label1, label2, titulo, rodape;
@@ -48,13 +52,31 @@ public class Janela extends JFrame{
         texto2 = new JTextField(20);
         botao1 = new JButton("Botão 1");
         botao2 = new JButton("Botão 2");
+        
+        painelCentral.setLayout(null);
        
+        botao1.setBounds(300, 34, 400, 60);
+        botao2.setBounds(300, 100, 400, 60);
+        
+        botao1.addActionListener(this);
+        botao2.addActionListener(this);
+        
         painelCentral.add(label1);
         painelCentral.add(texto1);
         painelCentral.add(label2);
         painelCentral.add(texto2);
         painelCentral.add(botao1);   
         painelCentral.add(botao2);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        
+        if (e.getSource() == botao1){
+            JOptionPane.showMessageDialog(this, "Clicou no botão 1");
+        }else if (e.getSource() == botao2){
+            JOptionPane.showMessageDialog(this, "Clicou no botão 2");
+        }
     }
     
 }

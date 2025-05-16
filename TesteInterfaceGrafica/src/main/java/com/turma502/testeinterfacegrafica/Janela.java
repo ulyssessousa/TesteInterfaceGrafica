@@ -50,13 +50,19 @@ public class Janela extends JFrame implements ActionListener{
         label2 = new JLabel("Senha:");
         texto1 = new JTextField(20);
         texto2 = new JTextField(20);
-        botao1 = new JButton("Botão 1");
-        botao2 = new JButton("Botão 2");
+        botao1 = new JButton("Enviar");
+        botao2 = new JButton("Limpar campos");
         
         painelCentral.setLayout(null);
+        
+        label1.setBounds(30, 50, 150, 30);
+        texto1.setBounds(180, 50, 200, 30);
+        
+        label2.setBounds(30, 100, 150, 30);
+        texto2.setBounds(180, 100, 200, 30);
        
-        botao1.setBounds(300, 34, 400, 60);
-        botao2.setBounds(300, 100, 400, 60);
+        botao1.setBounds(90, 150, 140, 40);
+        botao2.setBounds(280, 150, 140, 40);
         
         botao1.addActionListener(this);
         botao2.addActionListener(this);
@@ -68,14 +74,25 @@ public class Janela extends JFrame implements ActionListener{
         painelCentral.add(botao1);   
         painelCentral.add(botao2);
     }
+    
+    private void limparCampos(){
+        texto1.setText("");
+        texto2.setText("");
+    }
 
+    private void mostrarDados(){
+        String mensagem = "Login: " + texto1.getText();
+        mensagem += "\nSenha: " + texto2.getText();
+        JOptionPane.showConfirmDialog(this, mensagem);
+    }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         
         if (e.getSource() == botao1){
-            JOptionPane.showMessageDialog(this, "Clicou no botão 1");
+            mostrarDados();
         }else if (e.getSource() == botao2){
-            JOptionPane.showMessageDialog(this, "Clicou no botão 2");
+            limparCampos();
         }
     }
     
